@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+    <a href="#" class="logo" data-page="home">✓ Task Manager</a>
+
+    <nav>
+        <a href="#" data-page="home">Басты бет</a>
+        <a href="#" data-page="tasks">Тапсырмалар</a>
+        <a href="#" data-page="login">Кіру</a>
+        <a href="#" data-page="register">Тіркелу</a>
+    </nav>
+</header>
+
+<main class="container">
+
+    <!-- БАСТЫ БЕТ -->
+    <section id="home" class="page active">
+        <div class="hero">
+            <span class="badge">Тапсырмаларыңды басқару оңай!</span>
+
+            <h1>Барлық тапсырмаң<br>бір жерде</h1>
+
+            <p>
+                Күнделікті тапсырмаларыңды жоспарла,
+                уақытыңды тиімді пайдалан және жұмысыңды бақыла.
+            </p>
+
+            <button class="btn" data-page="register">Баста →</button>
+            <button class="btn secondary" data-page="tasks">
+                Тапсырмаларды көру
+            </button>
+        </div>
+
+        <h2 class="section-title">Негізгі мүмкіндіктер</h2>
+
+        <div class="features">
+            <div class="card">
+                <div class="icon">📝</div>
+                <h3>Тапсырма қосу</h3>
+                <p>Жаңа тапсырмаларды оңай қос.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">📅</div>
+                <h3>Жоспарлау</h3>
+                <p>Күнделікті істеріңді ретте.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">✅</div>
+                <h3>Нәтижені бақылау</h3>
+                <p>Орындалған тапсырмаларды белгіле.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- КІРУ БЕТІ -->
+    <section id="login" class="page">
+        <div class="form-container">
+            <div class="form-icon">👋</div>
+            <h1>Қош келдің!</h1>
+            <p>Аккаунтыңа кіріп, тапсырмаларыңды басқар.</p>
+
+            <form id="loginForm">
+                <label for="loginEmail">Электрондық пошта</label>
+                <input
+                    type="email"
+                    id="loginEmail"
+                    placeholder="example@mail.com"
+                    required
+                >
+
+                <label for="loginPassword">Құпиясөз</label>
+                <input
+                    type="password"
+                    id="loginPassword"
+                    placeholder="Құпиясөзіңді енгіз"
+                    required
+                    minlength="6"
+                >
+
+                <button type="submit" class="btn full">
+                    Кіру
+                </button>
+            </form>
+
+            <p class="form-link">
+                Аккаунтың жоқ па?
+                <a href="#" data-page="register">Тіркелу</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- ТІРКЕЛУ БЕТІ -->
+    <section id="register" class="page">
+        <div class="form-container">
+            <div class="form-icon">✨</div>
+            <h1>Тіркелу</h1>
+            <p>Жаңа аккаунт құрып, тапсырмаларыңды жоспарла.</p>
+
+            <form id="registerForm">
+                <label for="regName">Аты-жөнің</label>
+                <input
+                    type="text"
+                    id="regName"
+                    placeholder="Атыңды енгіз"
+                    minlength="2"
+                    maxlength="100"
+                    required
+                >
+
+                <label for="regEmail">Электрондық пошта</label>
+                <input
+                    type="email"
+                    id="regEmail"
+                    placeholder="example@mail.com"
+                    required
+                >
+
+                <label for="regPassword">Құпиясөз</label>
+                <input
+                    type="password"
+                    id="regPassword"
+                    placeholder="Кемінде 6 таңба"
+                    minlength="6"
+                    required
+                >
+
+                <label for="confirmPassword">Құпиясөзді қайталау</label>
+                <input
+                    type="password"
+                    id="confirmPassword"
+                    placeholder="Құпиясөзді қайта енгіз"
+                    minlength="6"
+                    required
+                >
+
+                <button type="submit" class="btn full">
+                    Тіркелу
+                </button>
+            </form>
+
+            <p class="form-link">
+                Аккаунтың бар ма?
+                <a href="#" data-page="login">Жүйеге кіру</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- ТАПСЫРМАЛАР БЕТІ -->
+    <section id="tasks" class="page">
+        <div class="tasks-heading">
+            <div>
+                <span class="badge">Жеке жоспарлаушы</span>
+                <h1>Менің тапсырмаларым</h1>
+                <p>Істеріңді жоспарла және орындалуын бақыла.</p>
+            </div>
+        </div>
+
+        <div class="stats">
+            <div class="stat-card">
+                <span>Барлық тапсырма</span>
+                <strong id="totalCount">0</strong>
+            </div>
+
+            <div class="stat-card">
+                <span>Орындалмаған</span>
+                <strong id="pendingCount">0</strong>
+            </div>
+
+            <div class="stat-card">
+                <span>Орындалған</span>
+                <strong id="completedCount">0</strong>
+            </div>
+        </div>
+
+        <div class="card add-task-card">
+            <h2>＋ Жаңа тапсырма</h2>
+
+            <form id="taskForm">
+                <label for="taskTitle">Тапсырма атауы</label>
+                <input
+                    type="text"
+                    id="taskTitle"
+                    placeholder="Мысалы: Үй тапсырмасын орындау"
+                    maxlength="200"
+                    required
+                >
+
+                <label for="taskCategory">Санат</label>
+                <select id="taskCategory">
+                    <option value="Оқу">📚 Оқу</option>
+                    <option value="Жұмыс">💼 Жұмыс</option>
+                    <option value="Жеке істер">⭐ Жеке істер</option>
+                </select>
+
+                <button type="submit" class="btn">
+                    + Тапсырма қосу
+                </button>
+            </form>
+        </div>
+
+        <div class="task-controls">
+            <input
+                type="search"
+                id="searchInput"
+                placeholder="🔍 Тапсырманы іздеу..."
+            >
+
+            <select id="statusFilter">
+                <option value="all">Барлық тапсырма</option>
+                <option value="pending">Орындалмаған</option>
+                <option value="completed">Орындалған</option>
+            </select>
+        </div>
+
+        <div id="taskList" class="task-list"></div>
+    </section>
+
+</main>
+
+<footer>
+    <p>© 2026 Task Manager | Тапсырмаларыңды оңай басқар!</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
